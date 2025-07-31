@@ -13,11 +13,11 @@ Player* Referee:: refGame(Player* player1, Player* player2){
         return nullptr;
     }
 
-If ((move1=='R'&&move2=="S")||(move1=='P'&&move2=='R')||(move1=='S'&&move2=='P')){
-    return player1
+if ((move1 == 'R' && move2 == 'S')||(move1 == 'P' && move2 == 'R')||(move1 == 'S' && move2 == 'P')){
+    return player1;
 }
-else{ 
-    return player2
+else { 
+    return player2;
 }
 
 }

@@ -14,7 +14,7 @@ int main(){
         std::cout<<"It's a Tie"<< std::endl;
     }
     else{
-        std::cout <<winner->getName()<< "Wins"<< std::endl;
+        std::cout <<winner->getName()<< " Wins"<< std::endl;
     }
 return 0;
 
