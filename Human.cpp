@@ -2,6 +2,20 @@
 #include "Human.h" 
 
 int main(){
-    std::cout <<"Hi"<<std::endl;
+
+Human:: Human(std::string name){
+    this->name = name;
+}
+
+char Human::makeMove(){
+char move;
+std::cout<< "enter move: "<<;
+std::cin >> move;
+}
+
+std::string Human::getName(){
+    return name;
+}
+
     return 0;
 }

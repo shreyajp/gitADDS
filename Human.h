@@ -5,9 +5,16 @@
 
 Class Human: Public Player {
 
-    char enterMove()=;
+    private: 
+    std::string name;
+
+    public:
+    Human(std::string name = "Human")
+
+    char makeMove() override ;
+    std::string getName() override ;
 
 
-}
+};
 
 #endif
