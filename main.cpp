@@ -4,7 +4,7 @@
 #include <iostream>
 
 int main(){
-    Human h(shreya);
+    Human h("Shreya");
     Computer c;
     Referee r;
 
@@ -17,6 +17,5 @@ int main(){
         std::cout <<winner->getName()<< "Wins"<< std::endl;
     }
 return 0;
-g++ main.cpp Human.cpp Computer.cpp Referee.cpp Player.cpp -o rps
 
 }
