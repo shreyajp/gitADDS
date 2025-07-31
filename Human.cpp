@@ -1,8 +1,6 @@
 #include <iostream>
 #include "Human.h" 
 
-int main(){
-
 Human:: Human(std::string name){
     this->name = name;
 }
@@ -15,7 +13,4 @@ std::cin >> move;
 
 std::string Human::getName(){
     return name;
-}
-
-    return 0;
 }

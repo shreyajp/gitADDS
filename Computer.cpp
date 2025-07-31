@@ -1,6 +1,13 @@
 #include "Computer.h"
 
-char Computer::makeMove(){
-    char move = 'R';
+Computer:: Computer(std::string name){
+    this->name = name;
 }
 
+char Computer::makeMove(){
+     return = 'R';
+}
+
+std::string Computer::getName(){
+    return name;
+}
