@@ -49,3 +49,4 @@ int Move::compare(const Move& other) const{
     if(beats(name_, other.name_)) return +1;
     if(beats(other.name_, name_)) return -1;
     return 0;
+}
