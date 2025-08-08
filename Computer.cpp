@@ -1,15 +1,12 @@
-#ifndef COMPUTER_H
-#define COMPUTER_H
-#include "Player.h"
-#include <string>
+#include "Computer.h"
+#include "Move.h"
 
-class Computer : public Player {
-public:
-    explicit Computer(std::string name = "Computer") : name(name) {}
-    Move* makeMove() override;
-    std::string getName() override { return name; }
-private:
-    std::string name;
-    int index = 3; 
-};
-#endif
+Move* Computer::makeMove(){
+    static const char* cycle[] = {
+        "Rock","Paper","Scissors","Robot","Monkey","Pirate","Ninja","Zombie"
+    };
+    const int n = 8;
+    const char* pick = cycle[index % n];
+    index++;
+    return Move::fromString(pick);
+}
