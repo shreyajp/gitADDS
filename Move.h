@@ -1,48 +1,17 @@
 #ifndef MOVE_H
 #define MOVE_H
-
 #include <string>
-#include <vector>
-#include <initializer_list>
 
-// Abstract base
 class Move {
 public:
-    virtual ~Move() = default;
-    virtual std::string getName() const = 0;
-    virtual bool beats(const Move& other) const = 0;
-};
-
-// Reusable base that stores name + who it beats
-class SimpleMove : public Move {
-public:
-    SimpleMove(std::string name, std::initializer_list<std::string> beatsList)
-        : name_(std::move(name)), beatsList_(beatsList) {}
-
-    std::string getName() const override { return name_; }
-
-    bool beats(const Move& other) const override {
-        for (const auto& w : beatsList_) {
-            if (w == other.getName()) return true;
-        }
-        return false;
-    }
-
+    static Move* fromString(const std::string& rawName);   
+    const std::string& getName() const { return name_; }
+    int compare(const Move& other) const; 
 private:
+    explicit Move(const std::string& canonical) : name_(canonical) {}
+    static std::string canonicalize(const std::string& s);
+    static bool isValid(const std::string& s);
+    static bool beats(const std::string& a, const std::string& b);
     std::string name_;
-    std::vector<std::string> beatsList_;
 };
-
-// RPS
-class Rock     : public SimpleMove { public: Rock()     : SimpleMove("Rock",     {"Scissors"}) {} };
-class Paper    : public SimpleMove { public: Paper()    : SimpleMove("Paper",    {"Rock"})     {} };
-class Scissors : public SimpleMove { public: Scissors() : SimpleMove("Scissors", {"Paper"})    {} };
-
-// MRPNZ
-class Monkey : public SimpleMove { public: Monkey() : SimpleMove("Monkey", {"Ninja","Robot"}) {} };
-class Robot  : public SimpleMove { public: Robot()  : SimpleMove("Robot",  {"Ninja","Zombie"}) {} };
-class Pirate : public SimpleMove { public: Pirate() : SimpleMove("Pirate", {"Robot","Monkey"}) {} };
-class Ninja  : public SimpleMove { public: Ninja()  : SimpleMove("Ninja",  {"Pirate","Zombie"}) {} };
-class Zombie : public SimpleMove { public: Zombie() : SimpleMove("Zombie", {"Pirate","Monkey"}) {} };
-
 #endif
