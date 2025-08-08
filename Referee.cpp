@@ -1,23 +1,19 @@
 #include "Referee.h"
+#include "Move.h"
+#include <memory>
 
-Referee::Referee(){}
+Referee::Referee() {}
 
-Player* Referee:: refGame(Player* player1, Player* player2){
-    char move1 = player1->makeMove();
-    char move2 = player2->makeMove();
+Player* Referee::refGame(Player* player1, Player* player2) {
+    std::unique_ptr<Move> m1(player1->makeMove());
+    std::unique_ptr<Move> m2(player2->makeMove());
 
-    move1 = toupper(move1);
-    move2 = toupper(move2);
+    if (!m1 || !m2) return nullptr; 
 
-    if (move1==move2){
-        return nullptr;
-    }
+    if (m1->getName() == m2->getName()) return nullptr; 
 
-if ((move1 == 'R' && move2 == 'S')||(move1 == 'P' && move2 == 'R')||(move1 == 'S' && move2 == 'P')){
-    return player1;
-}
-else { 
-    return player2;
-}
+    if (m1->beats(*m2)) return player1;
+    if (m2->beats(*m1)) return player2;
 
+    return nullptr;
 }
