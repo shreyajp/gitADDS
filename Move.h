@@ -2,12 +2,10 @@
 #define MOVE_H
 
 #include <string>
-#include <initializer_list>
 #include <vector>
-#include <algorithm>
+#include <initializer_list>
 
-g++ -std=c++17 -Wall -Wextra -pedantic \
-    main.cpp Player.cpp Human.cpp Computer.cpp Referee.cpp Move.cpp -o moropinzee
+// Abstract base
 class Move {
 public:
     virtual ~Move() = default;
@@ -15,6 +13,7 @@ public:
     virtual bool beats(const Move& other) const = 0;
 };
 
+// Reusable base that stores name + who it beats
 class SimpleMove : public Move {
 public:
     SimpleMove(std::string name, std::initializer_list<std::string> beatsList)
@@ -23,7 +22,9 @@ public:
     std::string getName() const override { return name_; }
 
     bool beats(const Move& other) const override {
-        for (const auto& w : beatsList_) if (w == other.getName()) return true;
+        for (const auto& w : beatsList_) {
+            if (w == other.getName()) return true;
+        }
         return false;
     }
 
