@@ -1,18 +1,27 @@
 #include "Referee.h"
 #include "Move.h"
 
-Player* Referee::refGame(Player* player1, Player* player2){
-    if(!player1 || !player2) return nullptr;
+Referee::Referee() {}
 
+Player* Referee::refGame(Player* player1, Player* player2) {
     Move* m1 = player1->makeMove();
     Move* m2 = player2->makeMove();
 
-    if(!m1 || !m2){ delete m1; delete m2; return nullptr; }
+    if (!m1 || !m2) {
+        delete m1; delete m2;
+        return nullptr;
+    }
 
-    int r = m1->compare(*m2);
-    delete m1; delete m2;
+    Player* winner = nullptr;
+    if (m1->defeats(*m2)) {
+        winner = player1;
+    } else if (m2->defeats(*m1)) {
+        winner = player2;
+    } else {
+        winner = nullptr; 
+    }
 
-    if(r > 0)  return player1;
-    if(r < 0)  return player2;
-    return nullptr; 
+    delete m1;
+    delete m2;
+    return winner;
 }

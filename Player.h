@@ -7,9 +7,11 @@ class Move;
 
 class Player {
 public:
-    virtual ~Player() {}
-    virtual Move* makeMove() = 0;       
-    virtual std::string getName() = 0; 
+    virtual ~Player() = default;
+
+    virtual Move* makeMove() = 0;
+
+    virtual std::string getName() = 0;
 };
 
-#endif  
+#endif

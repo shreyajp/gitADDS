@@ -1,11 +1,16 @@
+#include <iostream>
 #include "Human.h"
 #include "Move.h"
-#include <iostream>
 
-Move* Human::makeMove(){
-    std::string typed;
-    std::cout << "Enter Move: ";
-    std::getline(std::cin, typed);
-    if(typed.empty()) std::getline(std::cin, typed); 
-    return Move::fromString(typed); 
+Human::Human(std::string name) { this->name = std::move(name); }
+
+Move* Human::makeMove() {
+    std::cout << "Enter move (Rock, Paper, Scissors, Robot, Monkey, Pirate, Ninja, Zombie): ";
+    std::string input;
+    std::cin >> input;
+    return createMove(input);
+}
+
+std::string Human::getName() {
+    return name;
 }

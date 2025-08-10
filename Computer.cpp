@@ -1,12 +1,12 @@
 #include "Computer.h"
 #include "Move.h"
 
-Move* Computer::makeMove(){
-    static const char* cycle[] = {
-        "Rock","Paper","Scissors","Robot","Monkey","Pirate","Ninja","Zombie"
-    };
-    const int n = 8;
-    const char* pick = cycle[index % n];
-    index++;
-    return Move::fromString(pick);
+Computer::Computer(std::string name) { this->name = std::move(name); }
+
+Move* Computer::makeMove() {
+    return createMove("Robot");
+}
+
+std::string Computer::getName() {
+    return name;
 }
