@@ -1,10 +1,11 @@
 #include "Computer.h"
 #include "Move.h"
+#include <utility>
 
-Computer::Computer(std::string name) { this->name = std::move(name); }
+Computer::Computer(std::string name) : name(std::move(name)) {}
 
 Move* Computer::makeMove() {
-    return createMove("Robot");
+    return createMove("Rock");
 }
 
 std::string Computer::getName() {

@@ -7,13 +7,12 @@
 class Human : public Player {
 private:
     std::string name;
-
 public:
     explicit Human(std::string name = "Human");
     ~Human() override = default;
 
-    Move* makeMove() override;      
-    std::string getName() override; 
+    Move* makeMove() override;     
+    std::string getName() override;
 };
 
 #endif

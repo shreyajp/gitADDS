@@ -5,15 +5,11 @@
 
 int main() {
     Human h("Shreya");
-    Computer c;          
+    Computer c;
     Referee r;
 
     Player* winner = r.refGame(&h, &c);
-
-    if (winner == nullptr) {
-        std::cout << "It's a Tie" << std::endl;
-    } else {
-        std::cout << winner->getName() << " Wins" << std::endl;
-    }
+    if (!winner) std::cout << "It's a Tie\n";
+    else         std::cout << winner->getName() << "\n";
     return 0;
 }

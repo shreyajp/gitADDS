@@ -7,13 +7,12 @@
 class Computer : public Player {
 private:
     std::string name;
-
 public:
     explicit Computer(std::string name = "Computer");
     ~Computer() override = default;
 
-    Move* makeMove() override;      
-    std::string getName() override;  
+    Move* makeMove() override;     
+    std::string getName() override;
 };
 
 #endif
