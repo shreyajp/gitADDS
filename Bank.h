@@ -8,10 +8,11 @@ std::string name;
 double balance;
 
     public:
-balance constructor;
+BankAccount();
+BankAccount(std::string n, double initialBalance);
 double deposit(double amount);
 double withdraw(double amount);
-double getBalance()
+double getBalance();
 
 }
 
