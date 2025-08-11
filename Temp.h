@@ -7,6 +7,6 @@ class TemperatureConverter{
     double toCelsius(double fahrenheit);
 
     double toFahrenheit(double celcius);
-}
+};
 
 #endif
