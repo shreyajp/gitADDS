@@ -20,12 +20,14 @@ std::cout<<"player 2 plays: "<<move2<<std::endl;
 if (move1==move2){
     std::cout<<"its a tie"<<std::endl;
 }
-if(move1=='r' && move2=='s' ||move1=='p' && move2=='r'||move1=='s' && move2=='p'){
+else if((move1=='r' && move2=='s')||(move1=='p' && move2=='r')||(move1=='s' && move2=='p')){
     std::cout<<"winner: "<< name1<< std::endl;
+    return p1;
+    
 }
-else{
+else {
     std::cout<<"Winner: "<< name2<< std::endl;
-}
-
+    return p2;
+};
 
 }

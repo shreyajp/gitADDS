@@ -3,7 +3,7 @@
 #include "Player.h"
 #include <string>
 
-class Human{
+class Human: public Player{
     private:
     std::string name;
 

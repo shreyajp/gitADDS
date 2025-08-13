@@ -16,6 +16,6 @@ char Human::makeMove(){
 std::string Human::getName(){
     std::cout<<"What is your name: ";
     std::cin>>name;
-    std::cout<<name;
+    return name;
 
 }
