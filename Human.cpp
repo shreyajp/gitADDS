@@ -3,19 +3,22 @@
 
 Human::Human(){
     name = "human player";
+}
 
+void Human::setName(std::string n){
+     this->name=n; 
+}
+
+void Human::setMove(char m){
+    this->move=m;
 }
 
 char Human::makeMove(){
-    char move;
-    std::cout<<"Make your move (r,p,s) ";
-    std::cin>>move;
     return move;
 }
 
+
 std::string Human::getName(){
-    std::cout<<"What is your name: ";
-    std::cin>>name;
     return name;
 
 }
