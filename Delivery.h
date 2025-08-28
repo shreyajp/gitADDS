@@ -6,6 +6,7 @@ class Delivery{
     private:
 
     public:
+    Delivery();
     virtual double calculateCost()=0;
     virtual std::string getType()=0;
 };
