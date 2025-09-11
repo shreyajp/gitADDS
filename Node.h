@@ -8,8 +8,10 @@ private:
 
 public:
     Node(int value);
+
     int getData() const;
     void setData(int value);
+
     Node* getLink() const;
     void setLink(Node* next);
 };
