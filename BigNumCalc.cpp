@@ -1,7 +1,6 @@
 #include "BigNumCalc.h"
 #include <algorithm>
 
-// Convert string to list<int>
 std::list<int> BigNumCalc::buildBigNum(std::string numString) {
     std::list<int> num;
     for (char c : numString) {
@@ -10,7 +9,6 @@ std::list<int> BigNumCalc::buildBigNum(std::string numString) {
     return num;
 }
 
-// Add two big numbers
 std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
     std::list<int> result;
     auto it1 = num1.rbegin();
@@ -27,7 +25,6 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
     return result;
 }
 
-// Subtract num2 from num1 (assume num1 >= num2)
 std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
     std::list<int> result;
     auto it1 = num1.rbegin();
@@ -47,7 +44,6 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
         if (it2 != num2.rend()) ++it2;
     }
 
-    // remove leading zeros
     while (result.size() > 1 && result.front() == 0) {
         result.pop_front();
     }
@@ -55,9 +51,8 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
     return result;
 }
 
-// Multiply num1 by single-digit num2
 std::list<int> BigNumCalc::mul(std::list<int> num1, std::list<int> num2) {
-    int digit = num2.back(); // only one digit guaranteed
+    int digit = num2.back(); 
     std::list<int> result;
     int carry = 0;
 

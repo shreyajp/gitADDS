@@ -2,11 +2,16 @@
 #define NODE_H
 
 class Node {
-public:
+private:
     int data;
     Node* link;
 
+public:
     Node(int value);
+    int getData() const;
+    void setData(int value);
+    Node* getLink() const;
+    void setLink(Node* next);
 };
 
 #endif
