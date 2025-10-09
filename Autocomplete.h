@@ -27,3 +27,5 @@ private:
     const Node* seek(const std::string& normalizedPrefix) const;
     void collect(const Node* node, std::string& prefix, std::vector<std::string>& out) const;
 };
+
+#endif 
